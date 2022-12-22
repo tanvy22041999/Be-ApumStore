@@ -247,3 +247,9 @@ Identify and stop the process that's listening on port 3000 or configure this ap
 2022-12-22 18:19:11 [http-nio-3000-exec-1] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:9, serverValue:1580022}] to ac-kyxjnbz-shard-00-01.cffdjx2.mongodb.net:27017
 2022-12-22 18:19:11 [http-nio-3000-exec-10] INFO  org.mongodb.driver.connection - Opened connection [connectionId{localValue:10, serverValue:1580021}] to ac-kyxjnbz-shard-00-01.cffdjx2.mongodb.net:27017
 2022-12-22 18:19:18 [http-nio-3000-exec-7] WARN  o.s.w.s.m.s.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
+2022-12-22 18:21:42 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskScheduler - Shutting down ExecutorService 'taskScheduler'
+2022-12-22 18:21:42 [SpringContextShutdownHook] INFO  o.s.s.c.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-12-22 18:21:42 [SpringContextShutdownHook] INFO  org.mongodb.driver.connection - Closed connection [connectionId{localValue:9, serverValue:1580022}] to ac-kyxjnbz-shard-00-01.cffdjx2.mongodb.net:27017 because the pool has been closed.
+2022-12-22 18:21:42 [SpringContextShutdownHook] INFO  org.mongodb.driver.connection - Closed connection [connectionId{localValue:10, serverValue:1580021}] to ac-kyxjnbz-shard-00-01.cffdjx2.mongodb.net:27017 because the pool has been closed.
+2022-12-22 18:21:42 [SpringContextShutdownHook] INFO  org.mongodb.driver.connection - Closed connection [connectionId{localValue:7, serverValue:1579937}] to ac-kyxjnbz-shard-00-01.cffdjx2.mongodb.net:27017 because the pool has been closed.
+2022-12-22 18:21:42 [SpringContextShutdownHook] INFO  org.mongodb.driver.connection - Closed connection [connectionId{localValue:8, serverValue:1580015}] to ac-kyxjnbz-shard-00-01.cffdjx2.mongodb.net:27017 because the pool has been closed.
