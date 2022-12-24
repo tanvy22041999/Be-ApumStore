@@ -3,6 +3,7 @@ package com.spring.ecomerce.controllers;
 import com.spring.ecomerce.arch.BaseResponseEntity;
 import com.spring.ecomerce.commons.MessageManager;
 import com.spring.ecomerce.dtos.clone.RegistryProductDTO;
+import com.spring.ecomerce.dtos.clone.UpdateProductDTO;
 import com.spring.ecomerce.entities.clone.ProductEntity;
 import com.spring.ecomerce.exception.SystemException;
 import com.spring.ecomerce.services.ProductService;
@@ -89,14 +90,14 @@ public class ProductController {
         return baseResponse.getResponseBody();
     }
 
-    @PutMapping()
-    public String updateNewProduct(@PathVariable(name = "id", required = false) String id, @RequestBody RegistryProductDTO productDTO) throws SystemException {
+    @PutMapping({"/id"})
+    public String updateNewProduct(@PathVariable(name = "id", required = false) String id, @RequestBody UpdateProductDTO productDTO) throws SystemException {
         try{
-            String messageValidate = productService.validateProduct(productDTO);
-            if(messageValidate != null){
-                baseResponse.failed(404, messageValidate);
-                return baseResponse.getResponseBody();
-            }
+//            String messageValidate = productService.validateProduct(productDTO);
+//            if(messageValidate != null){
+//                baseResponse.failed(404, messageValidate);
+//                return baseResponse.getResponseBody();
+//            }
 
             ProductEntity result = productService.updateProduct(id,productDTO);
             if(result == null){

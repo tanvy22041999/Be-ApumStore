@@ -1,6 +1,7 @@
 package com.spring.ecomerce.services;
 
 import com.spring.ecomerce.dtos.clone.RegistryProductDTO;
+import com.spring.ecomerce.dtos.clone.UpdateProductDTO;
 import com.spring.ecomerce.entities.clone.ProductEntity;
 import org.springframework.data.domain.Page;
 
@@ -15,5 +16,5 @@ public interface ProductService {
     List<ProductEntity> getHotSold();
 
     boolean saveAll(List<ProductEntity> productChanged);
-    ProductEntity updateProduct(String id, RegistryProductDTO productDTO);
+    ProductEntity updateProduct(String id, UpdateProductDTO productDTO);
 }

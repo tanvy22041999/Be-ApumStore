@@ -4,6 +4,7 @@ import com.spring.ecomerce.commons.MessageManager;
 import com.spring.ecomerce.dtos.clone.ColorProductDTO;
 import com.spring.ecomerce.dtos.clone.RegistryProductDTO;
 import com.spring.ecomerce.dtos.clone.SpecifyProductDTO;
+import com.spring.ecomerce.dtos.clone.UpdateProductDTO;
 import com.spring.ecomerce.entities.clone.*;
 import com.spring.ecomerce.entities.inner.ColorProduct;
 import com.spring.ecomerce.entities.inner.SpecifyProduct;
@@ -271,7 +272,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductEntity updateProduct(String id, RegistryProductDTO productDTO) {
+    public ProductEntity updateProduct(String id, UpdateProductDTO productDTO) {
         Optional<ProductEntity> productOptional = productRepository.findById(id);
         if(productOptional.isPresent()){
             ProductEntity productEntity = productOptional.get();
@@ -284,16 +285,16 @@ public class ProductServiceImpl implements ProductService {
             productEntity.setBigimage(imageService.findById(productDTO.getBigimage()));
 
             List<ImageEntity> imageSaved = new ArrayList<>();
-            List<String> imageIds = productDTO.getImage();
-            if(imageIds != null && imageIds.size() > 0){
-                for(String imageId : imageIds){
-                    ImageEntity imageEntity = imageService.findById(imageId);
-                    if(imageEntity != null){
-                        imageSaved.add(imageEntity);
-                    }
-                }
-            }
-            productEntity.setImage(imageSaved);
+//            List<String> imageIds = productDTO.getImage();
+//            if(imageIds != null && imageIds.size() > 0){
+//                for(String imageId : imageIds){
+//                    ImageEntity imageEntity = imageService.findById(imageId);
+//                    if(imageEntity != null){
+//                        imageSaved.add(imageEntity);
+//                    }
+//                }
+//            }
+            productEntity.setImage(productDTO.getImage());
 
             productEntity.setDescription(productDTO.getDescription());
             productEntity.setDescText(productDTO.getDescText());
