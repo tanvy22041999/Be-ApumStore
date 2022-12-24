@@ -89,7 +89,7 @@ public class ProductController {
         return baseResponse.getResponseBody();
     }
 
-    @PutMapping()
+    @PutMapping("/{id}")
     public String updateNewProduct(@PathVariable(name = "id", required = false) String id, @RequestBody RegistryProductDTO productDTO) throws SystemException {
         try{
             String messageValidate = productService.validateProduct(productDTO);
