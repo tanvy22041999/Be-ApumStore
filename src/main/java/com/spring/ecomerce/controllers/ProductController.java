@@ -89,7 +89,7 @@ public class ProductController {
 
         return baseResponse.getResponseBody();
     }
-    
+
     @PutMapping({"/{id}"})
     public String updateNewProduct(@PathVariable(name = "id", required = false) String id, @RequestBody UpdateProductDTO productDTO) throws SystemException {
         try{

@@ -1,5 +1,6 @@
 package com.spring.ecomerce.dtos.clone;
 
+import com.spring.ecomerce.dtos.UpdateColorProductDTO;
 import com.spring.ecomerce.entities.clone.ImageEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ public class UpdateProductDTO {
     private String brand;
     private String category;
     private String circumstance;
-    private List<ColorProductDTO> colors;
+    private List<UpdateColorProductDTO> colors;
     private String description;
     private String descText;
     private String group;

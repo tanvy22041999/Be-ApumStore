@@ -1,6 +1,7 @@
 package com.spring.ecomerce.services.impl;
 
 import com.spring.ecomerce.commons.MessageManager;
+import com.spring.ecomerce.dtos.UpdateColorProductDTO;
 import com.spring.ecomerce.dtos.clone.ColorProductDTO;
 import com.spring.ecomerce.dtos.clone.RegistryProductDTO;
 import com.spring.ecomerce.dtos.clone.SpecifyProductDTO;
@@ -282,7 +283,9 @@ public class ProductServiceImpl implements ProductService {
             productEntity.setWarrently(productDTO.getWarrently());
             productEntity.setCircumstance(productDTO.getCircumstance());
             productEntity.setIncluded(productDTO.getIncluded());
-            productEntity.setBigimage(imageService.findById(productDTO.getBigimage()));
+            if(productDTO.getBigimage() != null){
+                productEntity.setBigimage(imageService.findById(productDTO.getBigimage()));
+            }
 
             List<ImageEntity> imageSaved = new ArrayList<>();
 //            List<String> imageIds = productDTO.getImage();
@@ -350,13 +353,13 @@ public class ProductServiceImpl implements ProductService {
 
             //Color
             List<ColorProduct> colorSaved = new ArrayList<>();
-            List<ColorProductDTO> colors = productDTO.getColors();
+            List<UpdateColorProductDTO> colors = productDTO.getColors();
             List<ColorProductDTO> validColorProduct = new ArrayList<>();
             if(colors != null && colors.size() > 0){
-                for(ColorProductDTO colorProduct: colors){
+                for(UpdateColorProductDTO colorProduct: colors){
                     ColorEntity colorEntity = colorService.findById(colorProduct.getId());
                     if(colorEntity != null){
-                        validColorProduct.add(colorProduct);
+//                        validColorProduct.add(colorProduct);
 
                         ColorProduct validColor = new ColorProduct();
                         validColor.setNameEn(colorEntity.getNameVn());
@@ -365,14 +368,14 @@ public class ProductServiceImpl implements ProductService {
                         validColor.setPrice(colorProduct.getPrice());
                         validColor.setRealPrice(colorProduct.getRealPrice());
                         if(colorProduct.getImage() != null){
-                            ImageEntity imageColor = imageService.findById(colorProduct.getImage());
-                            if(imageColor != null){
-                                validColor.setImage(imageColor);
-                                validColor.setImageLink(imageColor.getPublicUrl());
-                            }
-                            else{
-                                validColor.setImageLink(colorProduct.getImageLink());
-                            }
+//                            ImageEntity imageColor = imageService.findById(colorProduct.getImage());
+//                            if(imageColor != null){
+//                                validColor.setImage(imageColor);
+//                                validColor.setImageLink(imageColor.getPublicUrl());
+//                            }
+//                            else{
+//                                validColor.setImageLink(colorProduct.getImageLink());
+//                            }
                         }
                         colorSaved.add(validColor);
                     }
